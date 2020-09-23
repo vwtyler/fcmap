@@ -1,0 +1,31 @@
+---
+title: "Food Cooperatives Map"
+author: "Tyler Jackson"
+date: "9/21/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rvest)
+
+url <- 'http://www.coopdirectory.org/directory.htm'
+webpage <- read_html(url)
+directory <- html_nodes(webpage, xpath = '//*[contains(concat( " ", @class, " " ), concat( " ", "phone", " " ))] | //*[contains(concat( " ", @class, " " ), concat( " ", "address", " " ))] | //a')
+
+d.text <- html_text(directory)
+```
+
+## R Markdown
+
+```{r load }
+```
+
+## Including Plots
+
+
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
